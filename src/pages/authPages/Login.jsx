@@ -2,7 +2,9 @@ import React from 'react'
 import "./auth.css"
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className=''>
+login
+    </div>
   )
 }
 
