@@ -12,14 +12,15 @@ import Home from './pages/home/Home.jsx'
 import Workout from './pages/workout/Workout.jsx'
 import UserLayout from './UserLayout.jsx'
 import ErrorPage from './ErrorPage.jsx'
+import LandingPage from './pages/landingPage/LandingPage.jsx'
 
 
 
 const myRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
-
-      <Route path='' element={<Login />}></Route>
+      <Route path='' element={<LandingPage/>}></Route>
+      <Route path='/login' element={<Login />}></Route>
       <Route path='/register' element={<Register />} />
 
       <Route path='/user' element={<UserLayout />}>
