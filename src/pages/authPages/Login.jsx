@@ -13,7 +13,9 @@ const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  //==============all functions for actions===========================
+
+
+  //=======functionality for login===========================//
   const handleLogin = async (e) => {
     if (email == "" || password == "") {
       e.preventDefault()
@@ -28,7 +30,7 @@ const Login = () => {
         password: password
       })
       setLoading(false);
-      console.log(isUser);
+   
 
       if (isUser.data.status == 200) {
         setErrorMsg("Welcome back...!!!")
@@ -52,7 +54,7 @@ const Login = () => {
     localStorage.removeItem(import.meta.env.VITE_LOCAL_KEY);
   })
 
-  
+
   return (
     <div className='login-block flex items-center justify-center'>
       <main className='login-body text-black bg-[#ECF0F1] flex justify-evenly flex-col '>
