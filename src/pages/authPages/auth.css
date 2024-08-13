@@ -18,3 +18,24 @@
 .login-data button:active{
     transform: scale(0.9);
 }
+
+/* register page css============================ */
+
+.register-block{
+    height: 100vh;
+}
+.register-body{
+    height: 400px;
+    width: 320px;
+}
+.register-data{
+    height: 80%;
+    font-size: 0.8rem;
+}
+.register-data button{
+    font-size: 1rem;
+    transition: 0.1s ease-out;
+}
+.register-data button:active{
+    transform: scale(0.9);
+}

@@ -34,7 +34,7 @@ const Login = () => {
         setErrorMsg("Welcome back...!!!")
         localStorage.setItem(import.meta.env.VITE_LOCAL_KEY,isUser.data.userId)
         setTimeout(() => {
-          // navigate("/user/home")
+          navigate("/user/home")
         }, 1000)
       } else {
         setErrorMsg(isUser.data.msg)
@@ -78,9 +78,6 @@ const Login = () => {
             handleLogin(e);
           }} className='absolute bottom-5 right-5 rounded-md  w-24 h-7 bg-[#FFA500] text-white'>{loading ? "Loging in...." : "log-in"}</button>
         </section>
-
-
-
       </main>
     </div>
   )
