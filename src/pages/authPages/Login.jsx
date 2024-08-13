@@ -32,10 +32,11 @@ const Login = () => {
 
       if (isUser.data.status == 200) {
         setErrorMsg("Welcome back...!!!")
-        localStorage.setItem(import.meta.env.VITE_LOCAL_KEY,isUser.data.userId)
+        let userId=isUser.data.userId;
+        localStorage.setItem(import.meta.env.VITE_USER_KEY,userId);
         setTimeout(() => {
           navigate("/user/home")
-        }, 1000)
+        }, 2000)
       } else {
         setErrorMsg(isUser.data.msg)
         setPassword("");
@@ -50,6 +51,8 @@ const Login = () => {
   useEffect(()=>{
     localStorage.removeItem(import.meta.env.VITE_LOCAL_KEY);
   })
+
+  
   return (
     <div className='login-block flex items-center justify-center'>
       <main className='login-body text-black bg-[#ECF0F1] flex justify-evenly flex-col '>

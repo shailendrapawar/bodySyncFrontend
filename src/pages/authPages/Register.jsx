@@ -7,7 +7,6 @@ import { BsGenderAmbiguous } from "react-icons/bs";
 
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
-import {} from "react-router-dom"
 
 const Register = () => {
   const [name, setName] = React.useState("");
@@ -19,6 +18,7 @@ const Register = () => {
 
   const navigate=useNavigate()
 
+  //function for registering the user================================
   const handleRegister = async (e) => {
     if (name == "" || email == "" || password == "" || gender == "") {
       e.preventDefault();
@@ -49,8 +49,8 @@ const Register = () => {
         }, 2000)
       }
     }
-
   }
+  
 
   return (
     <div className='register-block bg-white flex items-center justify-center '>
