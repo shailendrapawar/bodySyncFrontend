@@ -1,0 +1,20 @@
+.navbar-block{
+    height: 60px;
+}
+
+.active{
+    background-color: yellow;
+}
+
+.nav2-center{
+    width: 80%;
+    max-width: 300px;
+    height: 90vh;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    
+}

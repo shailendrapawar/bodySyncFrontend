@@ -37,7 +37,7 @@ const Login = () => {
         let userId=isUser.data.userId;
         localStorage.setItem(import.meta.env.VITE_USER_KEY,userId);
         setTimeout(() => {
-          navigate("/user/home")
+          navigate("/user/")
         }, 2000)
       } else {
         setErrorMsg(isUser.data.msg)

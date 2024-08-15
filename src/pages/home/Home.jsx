@@ -8,7 +8,7 @@ const navigate=useNavigate()
 
  
   return (
-    <div>Home</div>
+    <div className='home-block bg-[#ECF0F1] '>Home</div>
   )
 }
 
