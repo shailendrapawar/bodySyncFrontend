@@ -1,11 +1,79 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./userProfile.css"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from "axios"
+import src from "./avatar.webp"
+
+
+import { MdChangeCircle } from "react-icons/md";
+
+import { TiDelete } from "react-icons/ti";
+import { TiDeleteOutline } from "react-icons/ti";
+
+
+
 const UserProfile = () => {
 
- 
+  const navigate = useNavigate();
+
+  //========function for fettching user data=======================
+  const loadUserData = async (userId) => {
+    let userData = await axios.get(import.meta.env.VITE_API_URL + `/getUser/${userId}`)
+    console.log(userData);
+
+  }
+
+
+  useEffect(() => {
+    const userId = localStorage.getItem(import.meta.env.VITE_USER_KEY)
+    if (userId == null || userId == undefined) {
+      navigate("/login")
+    } else {
+      loadUserData(userId)
+    }
+
+
+  }, [])
+
   return (
-    <div className='userProfile-block'>UserProfile:</div>
+    <main className='userProfile-block'>
+
+      <section className='upperProfile-body'>
+
+
+        <div className='userData relative'>
+
+          <section className='userData-left'>
+            <img className='userProfilePic' src={src}></img>
+            <div className='h-10 flex justify-center gap-6'>
+            <TiDelete className='text-black h-full w-10' />
+              <MdChangeCircle className='text-black h-full w-8'/>
+            </div>
+          </section>
+
+          <section className='userData-right'>
+            <h1 className='text-black text-right pr-5'>userName </h1>
+            <textarea placeholder='bio of the user'></textarea>
+
+            <div className='user-hits-posts'>
+
+              <section className='user-posts relative'><b className='absolute top-0.5 left-1 '>Posts</b>67</section>
+              <section className='user-hits relative'><b className='absolute top-0.5 left-1'>Hits</b>78</section>
+
+            </div>
+            <button className=' bg-red-600 h-8 w-40 rounded-md '>sign-out</button>
+
+          </section>
+
+        </div>
+
+      </section>
+
+      <section className='lowerProfile-body'>
+
+      </section>
+
+    </main>
   )
 }
 
