@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./workout.css"
 const Workout = () => {
   return (
-    <div>Workout</div>
+    <div className='workout-block'>Workout</div>
   )
 }
 

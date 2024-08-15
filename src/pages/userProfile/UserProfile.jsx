@@ -5,7 +5,7 @@ const UserProfile = () => {
 
  
   return (
-    <div>UserProfile:</div>
+    <div className='userProfile-block'>UserProfile:</div>
   )
 }
 

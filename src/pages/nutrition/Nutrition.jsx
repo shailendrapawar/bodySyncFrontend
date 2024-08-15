@@ -3,7 +3,7 @@ import './nutrition.css'
 
 const Nutrition = () => {
   return (
-    <div>Nutrition</div>
+    <div className='nutrition-block'>Nutrition</div>
   )
 }
 

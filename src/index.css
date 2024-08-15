@@ -9,3 +9,18 @@
   background-color: black;
   color: white;
 }
+:root ::-webkit-scrollbar{
+  display: none;
+}
+
+.homeBtn{
+  position: absolute;
+  bottom: 5vh;
+  right: 45%;
+  border-radius: 20px;
+  transition: 0.1s ease-in-out;
+  z-index: 5;
+}
+.homeBtn:active{
+  transform: scale(0.9);
+}

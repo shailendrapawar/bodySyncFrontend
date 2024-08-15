@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./addPost.css"
 const AddPost = () => {
   return (
-    <div>AddPost</div>
+    <div className='addPost-block'>AddPost</div>
   )
 }
 

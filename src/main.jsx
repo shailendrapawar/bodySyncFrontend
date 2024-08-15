@@ -25,7 +25,7 @@ const myRouter = createBrowserRouter(
 
       <Route path='/user' element={<UserLayout />}>
         <Route path='' element={<Home />} />
-        <Route path='userProfile/:userId' element={<UserProfile />} />
+        <Route path='userProfile/' element={<UserProfile />} />
         <Route path='nutrition' element={<Nutrition />} />
         <Route path='addPost' element={<AddPost />} />
         <Route path='workout' element={<Workout />}></Route>
