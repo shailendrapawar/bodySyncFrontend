@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer, useRef } from 'react'
 import "./userProfile.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from "axios"
@@ -15,11 +15,26 @@ import { TiDeleteOutline } from "react-icons/ti";
 const UserProfile = () => {
 
   const navigate = useNavigate();
+  const inputRef=useRef()
+
+
+ 
+
+  //function for changing user photo=====================
+  const handleChangePhoto=()=>{
+    console.log(inputRef)
+    inputRef.current.click()
+  }
+
+  //function for removing photo==========================
+  const handleRemove=()=>{
+    
+  }
 
   //========function for fettching user data=======================
   const loadUserData = async (userId) => {
     let userData = await axios.get(import.meta.env.VITE_API_URL + `/getUser/${userId}`)
-    console.log(userData);
+    // console.log(userData);
 
   }
 
@@ -46,9 +61,11 @@ const UserProfile = () => {
           <section className='userData-left'>
             <img className='userProfilePic' src={src}></img>
             <div className='h-10 flex justify-center gap-6'>
-            <TiDelete className='text-black h-full w-10' />
-              <MdChangeCircle className='text-black h-full w-8'/>
+            <TiDelete onClick={()=>handleRemove()} className='text-black h-full w-10' />
+              <MdChangeCircle onClick={()=>handleChangePhoto()} className='text-black h-full w-8'/>
             </div>
+
+            <input className=' hidden' type='file' ref={inputRef}></input>
           </section>
 
           <section className='userData-right'>
