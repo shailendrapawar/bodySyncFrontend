@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
 import "./addPost.css"
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom"
 import altSrc from "./upload-icon1.png"
 
 
 const AddPost = () => {
   const inputRef=useRef()
+  const navigate=useNavigate();
 
 
   const [postImg,setPostImg]=useState([]);
@@ -25,11 +26,11 @@ const AddPost = () => {
 
      const formData=new FormData()
      const userId=localStorage.getItem(import.meta.env.VITE_USER_KEY)
-     console.log(userId);
 
      formData.append("userId",userId)
      formData.append( "postCaption",caption)
      formData.append("postImg",postImg)
+   
 
 
       let isUploaded=await axios.post(import.meta.env.VITE_API_URL+`/createPost`,formData,{
@@ -42,6 +43,9 @@ const AddPost = () => {
         console.log("post created ")
         setCaption("")
         setPreview(altSrc)
+        setTimeout(()=>{
+          navigate("/user/userProfile")
+        },1000)
       }else{
         console.log("post not created")
       }
