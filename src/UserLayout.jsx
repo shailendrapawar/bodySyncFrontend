@@ -13,8 +13,11 @@ const UserLayout = () => {
     <Navbar/>
 
     {<Outlet/>}
+
+    <section className=' homeBtn-cover w-full sticky bottom-12 grid place-content-center'>
+    <SiHomebridge onClick={()=>navigate("/user/")} className=' homeBtn w-14 h-14 bg-[#FFA500] text-white p-2 ' />
+    </section>
     
-    <SiHomebridge onClick={()=>navigate("/user/")} className=' homeBtn w-14 h-14 absolute bg-[#FFA500] text-white p-2 ' />
     </div>
   )
 }
