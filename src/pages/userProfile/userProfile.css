@@ -112,5 +112,13 @@ align-items: center;
 }
 .lowerProfile-body{
     background-color: white;
-    height: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

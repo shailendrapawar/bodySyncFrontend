@@ -7,6 +7,7 @@ import src from "./avatar.webp"
 
 import { MdChangeCircle } from "react-icons/md";
 import { TiDelete } from "react-icons/ti";
+import MiniPostCard from '../../components/miniPostCard/MiniPostCard'
 
 
 const UserProfile = () => {
@@ -55,10 +56,12 @@ const UserProfile = () => {
   //========function for fettching user data=======================
   const loadUserData = async (userId) => {
     let resData = await axios.get(import.meta.env.VITE_API_URL + `/getUser/${userId}`)
-    console.log(resData.data)
+    // console.log(resData.data)
     if (resData.data.status == 200) {
       setUserData(resData.data.userData)
       setUsersPosts(resData.data.userData.posts)
+    }else{
+      navigate("/login")
     }
 
   }
@@ -103,7 +106,11 @@ const UserProfile = () => {
 
       <section className='lowerProfile-block'>
         <div className='lowerProfile-body '>
-          {/* qwdqwqjdwjkndjkqnwjkdnk */}
+          {userPosts==null?<h1>Nothing to show</h1>:userPosts.map((post,i)=>{
+            // console.log(post)
+            return <MiniPostCard data={post} key={i}/>
+
+          })}
 
         </div>
       </section>
