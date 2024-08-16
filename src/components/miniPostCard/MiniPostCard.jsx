@@ -8,7 +8,7 @@ const MiniPostCard = ({data,deleteFn}) => {
     
   return (
     <main className='miniPostCard-body relative' style={{backgroundImage:`url(${data.postImg})`,backgroundPosition:"center",backgroundSize:"cover"}}>
-        <TiDeleteOutline onClick={()=>deleteFn(data._id)}  className='absolute left-1 top-1 w-6 h-6 '/>
+        <TiDeleteOutline  onClick={()=>deleteFn(data._id)}  className='miniPost-delete-btn absolute left-1 top-1 w-6 h-6 '/>
     </main>
   )
 }

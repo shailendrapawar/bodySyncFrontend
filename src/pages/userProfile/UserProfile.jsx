@@ -25,9 +25,8 @@ const UserProfile = () => {
     inputRef.current.click()
 
     setTimeout(()=>{
-      let ch=confirm("you want to change phtot");
+      let ch=confirm("change photo???");
       if(ch){
-        console.log("submitted")
       }else{
         console.log("cancelled")
       }

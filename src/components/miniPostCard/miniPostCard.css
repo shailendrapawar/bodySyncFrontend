@@ -3,4 +3,15 @@
     width: 150px;
     background-color: #BDC3C7;
     cursor: pointer;
+
+}
+.miniPost-delete-btn{
+display: none;
+transition: 0.2s ease-in-out;
+}
+.miniPost-delete-btn:active{
+    transform: scale(0.9);
+}
+.miniPostCard-body:hover .miniPost-delete-btn{
+    display: block;
 }
