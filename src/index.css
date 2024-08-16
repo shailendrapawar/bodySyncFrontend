@@ -19,9 +19,6 @@
   background-color: transparent;
 }
 .homeBtn{
-  /* position: sticky;
-  bottom: 5vh;
-  right:50vh; */
   border-radius: 20px;
   transition: 0.1s ease-in-out;
   z-index: 5;

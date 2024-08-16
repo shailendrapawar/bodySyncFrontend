@@ -1,8 +1,76 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import "./addPost.css"
+import axios from "axios";
+
+import altSrc from "./upload-icon1.png"
+
+
 const AddPost = () => {
+  const inputRef=useRef()
+
+
+  const [postImg,setPostImg]=useState([]);
+  const[caption, setCaption]=useState("");
+  const[preview,setPreview]=useState("");
+  const[imageSet,setImageSet]=useState(false);
+
+  const [loading,setLoading]=useState(false)
+
+  //function for posting=======================
+  const handlePost=async()=>{
+    if(postImg.length==0||caption==""){
+      alert("fill all fields")
+    }else{
+      setLoading(true)
+
+     const formData=new FormData()
+     const userId=localStorage.getItem(import.meta.env.VITE_USER_KEY)
+     console.log(userId);
+
+     formData.append("userId",userId)
+     formData.append( "postCaption",caption)
+     formData.append("postImg",postImg)
+
+
+      let isUploaded=await axios.post(import.meta.env.VITE_API_URL+`/createPost`,formData,{
+        headers:{
+          "Content-Type":"multipart/form-data"
+        }
+      })
+      if(isUploaded.data.status==201){
+        setLoading(false)
+        console.log("post created ")
+        setCaption("")
+        setPreview(altSrc)
+      }else{
+        console.log("post not created")
+      }
+    }
+  }
+
+
   return (
-    <div className='addPost-block'>AddPost</div>
+    <div className='addPost-block '>
+      <div className='addPost-body'>
+        <input typeof='image/png' onChange={(e)=>{
+          e.preventDefault()
+          setPreview("")
+          setPostImg("")
+          setImageSet(false)
+  
+          setPostImg(e.target.files[0])
+          setPreview(URL.createObjectURL(e.target.files[0]))
+          setImageSet(true)
+        
+        }} ref={inputRef} className=' hidden' type='file'></input>
+        <img src={imageSet?preview:altSrc} onClick={()=>inputRef.current.click()}></img>
+        <input value={caption} onChange={(e)=>setCaption(e.target.value)} className=' outline-none text-black pl-1 pr-1' type='text'></input>
+        <button onClick={(e)=>{
+          e.preventDefault()
+          handlePost();
+        }} className='bg-[#FFA500] rounded-md bottom-0 right-0'>{loading?"Posting...":"Post"}</button>
+      </div>
+    </div>
   )
 }
 
