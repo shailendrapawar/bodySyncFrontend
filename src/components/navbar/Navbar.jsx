@@ -21,7 +21,6 @@ const Navbar = () => {
   }
   return (
     <div className='navbar-block relative bg-[#FFA500]'>
-
       <nav className='nav-1 flex h-full justify-between items-center pl-10 pr-10 relative'>
         <img onClick={()=>navigate("/user")} className=' h-14 p-2 rounded-full' src={src}></img>
         <section className='nav1-center  flex justify-between'>

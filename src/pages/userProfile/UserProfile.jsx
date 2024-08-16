@@ -56,7 +56,7 @@ const UserProfile = () => {
   //========function for fettching user data=======================
   const loadUserData = async (userId) => {
     let resData = await axios.get(import.meta.env.VITE_API_URL + `/getUser/${userId}`)
-    // console.log(resData.data)
+    
     if (resData.data.status == 200) {
       setUserData(resData.data.userData)
       setUsersPosts(resData.data.userData.posts)
@@ -64,6 +64,21 @@ const UserProfile = () => {
       navigate("/login")
     }
 
+  }
+
+  const handleDelete=async(postId)=>{
+    const userId=localStorage.getItem(import.meta.env.VITE_USER_KEY)
+   
+    let isDeleted=await axios.post(import.meta.env.VITE_API_URL+`/deletePost/${postId}`,{
+      userId:userId
+    })
+    
+    if(isDeleted.data.status==200){
+      loadUserData(userId);
+    }else{
+      console.log("post not deleted")
+    }
+  
   }
 
 
@@ -108,7 +123,7 @@ const UserProfile = () => {
         <div className='lowerProfile-body '>
           {userPosts==null?<h1>Nothing to show</h1>:userPosts.map((post,i)=>{
             // console.log(post)
-            return <MiniPostCard data={post} key={i}/>
+            return <MiniPostCard deleteFn={handleDelete} data={post} key={i}/>
 
           })}
 

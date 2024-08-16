@@ -30,8 +30,8 @@ place-content: center;
 gap: 10px;
 }
 .userData-left img{
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
 }
 .userData-right{
@@ -69,6 +69,7 @@ padding-right: 10px;
         padding: 0px;
 
     }
+
     .userData{
         padding: 0px;
         width: 100%;
@@ -85,15 +86,22 @@ padding-right: 10px;
         gap: 0px;
         padding-top: 10px;
     }
+    .userData-left img{
+        width: 150px;
+        height: 150px;
+    }
     .userData-right{
         width: 100%;
         padding: 10px;
         height: auto;
         gap: 10px;
-align-items: center;
+        align-items: center;
     }
+
     .userData-right h1{
         text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
     .user-hits-posts{
         gap: 20px;
@@ -105,15 +113,18 @@ align-items: center;
 }
 
 .lowerProfile-block{
-    background-color: grey;
+    background-color: #ECF0F1;
     min-height: 100px;
     height: auto;
     border-top: 2px solid #FFA500;
+    display: grid;
+    place-content: center;
 }
 .lowerProfile-body{
     background-color: white;
     height: auto;
     display: flex;
+    max-width: 800px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;

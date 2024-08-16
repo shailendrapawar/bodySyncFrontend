@@ -17,7 +17,6 @@
     max-width: 500px;
     border-bottom: 2px solid transparent;
 }
-
 .nav-2{
     display: none;
 }
@@ -57,9 +56,8 @@
     border: 1px solid #F39C12;
     transition: 0.2s ease-out;
 }
-
 .nav2-center a:hover{
-    transform: scale(1.1);
+   transform: scale(1.1);
 }
 
 @media screen and (max-width:480px){
