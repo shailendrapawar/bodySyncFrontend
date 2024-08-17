@@ -34,7 +34,7 @@ const UserProfile = () => {
         setLoading(true)
         const userId = localStorage.getItem(import.meta.env.VITE_USER_KEY)
         const formData = new FormData();
-        console.log(profileImg);
+        
         formData.append("profileImg", profileImg)
         formData.append("userId", userId);
 
