@@ -6,7 +6,7 @@ import NutriCard from '../../components/nutriCard/NutriCard';
 const Nutrition = () => {
 
   const [keyword,setKeyword]=useState("");
-  const[notify,setNotify]=useState("");
+  const[notify,setNotify]=useState("notfy");
   const[loading,setLoading]=useState(false);
 
   const [data,setData]=useState([])
@@ -45,16 +45,20 @@ const Nutrition = () => {
 
   return (
     <div className='nutrition-block'>
+      <p className='h-6 w-5/6 text-red-500 text-center'>{notify}</p>
       <main className='search-body'>
-        <input value={keyword} onChange={(e)=>setKeyword(e.target.value)} type='text' className='h-full w-4/6 pl-1 pr-1 text-black outline-none' placeholder='enter food name'></input>
+        <input value={keyword} onChange={(e)=>{
+          e.preventDefault()
+          setKeyword(e.target.value)}} type='text' className='h-full w-4/6 pl-1 pr-1 text-black outline-none' placeholder='enter food or brand name '></input>
         <button onClick={(e)=>searchData(e)} className='bg-blue-500 w-2/6 h-full'>{loading?"searching...":"search"}</button>
       </main>
+      
 
 
       <section className='searchResult-body flex gap-1 flex-wrap'>
         {
           data!=[]?data.map((item,i)=>{
-            return <NutriCard key={i}/>
+            return <NutriCard data={item} key={i}/>
           }) :<h1>loading....</h1>
         }
 

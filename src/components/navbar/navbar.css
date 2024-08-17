@@ -1,5 +1,8 @@
 .navbar-block{
     height: 60px;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
 }
 
 .active1{

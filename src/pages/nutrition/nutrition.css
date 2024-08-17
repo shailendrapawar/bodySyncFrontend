@@ -14,9 +14,8 @@
     width: 300px;
 }
 .searchResult-body{
-    background-color: rgb(255, 3, 3);
     min-height: 200px;
-    height: 400px;
+    height: 450px;
     width: 90%;
     padding: 5px;
     justify-content: center;

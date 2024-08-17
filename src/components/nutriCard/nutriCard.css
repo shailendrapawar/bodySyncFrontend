@@ -1,5 +1,40 @@
 .nutriCard-body{
-    width: 250px;
-    height: 150px;
-    background-color: aqua;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px black;
+}
+.calorie{
+    font-size: 2rem;
+
+}
+.food-name{
+    font-size: 1.2rem;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    /* word-break: keep-all; */
+}
+.brand{
+    font-weight: 500;
+    color: grey;
+    font-size: 0.8rem;
+}
+.serving{
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.nutrition{
+    height: 35%;
+    justify-content: space-between;
+}
+.nutrition div{
+    width: 30%;
+    color: white;
+    display: grid;
+    place-content: center;
 }
