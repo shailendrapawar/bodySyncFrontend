@@ -6,6 +6,7 @@ import axios from "axios"
 
 const Workout = () => {
 
+  const sample=[1,2,3,4,5]
 
   const[workouts,setWorkout]=useState();
 
@@ -22,37 +23,40 @@ const Workout = () => {
 
 
   const searchExerciseByPart=async()=>{
-    setLoading(true);
-    const options = {
-      method: 'GET',
-      url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${keyword}`,
-      params: {
-        limit: '10',
-        offset: '0'
-      },
-      headers: {
-        'x-rapidapi-key': '3bd54973a0mshd4f4496d456703cp123660jsnc3f12322b690',
-        'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+    if(keyword!=""){
+      setLoading(true);
+      const options = {
+        method: 'GET',
+        url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${keyword}`,
+        params: {
+          limit: '10',
+          offset: '0'
+        },
+        headers: {
+          'x-rapidapi-key': '3bd54973a0mshd4f4496d456703cp123660jsnc3f12322b690',
+          'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+        }
+      };
+  
+      try {
+        const response = await axios.request(options);
+        console.log(response.data);
+        setWorkout(response.data);
+        setLoading(false);
+        setKeyword("")
+  
+      } catch (error) {
+        console.error(error);
       }
-    };
-
-    try {
-      const response = await axios.request(options);
-      console.log(response.data);
-      setWorkout(response.data);
-      setLoading(false);
-      setKeyword("")
-
-    } catch (error) {
-      console.error(error);
     }
+    
   }
 
 
 
   return (
     <div className='workout-block'>
-      <main className='workout-body flex flex-col items-center'> 
+      <main className='workout-body bg-[#ECF0F1] flex flex-col items-center'> 
 
         <section className='workoutSearch-body'>
           <input value={keyword} onChange={(e)=>{
@@ -65,15 +69,15 @@ const Workout = () => {
         <select onChange={(e)=>setKeyword(e.target.value)} className='search-list mt-2 text-black outline-none'>
           <option>or select body part</option>
 
-        {filterResult.map((v,i)=>{
+        {filterResult?.map((v,i)=>{
            return   <option className='bg-black text-white h-6 list-none' key={i}>{v}</option>
           })}
         </select>
 
 
-        <section className='workout-result flex flex-wrap gap-2 p-2 mt-2'>
+        <section className='workout-result bg-white flex flex-wrap gap-2 p-2 mt-2'>
           {
-            workouts.map((exercise,i)=>{
+            workouts?.map((exercise,i)=>{
               return <ExerciseCard data={exercise} key={i}/>
             })
           }

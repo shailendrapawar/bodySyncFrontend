@@ -13,6 +13,7 @@ import Workout from './pages/workout/Workout.jsx'
 import UserLayout from './UserLayout.jsx'
 import ErrorPage from './ErrorPage.jsx'
 import LandingPage from './pages/landingPage/LandingPage.jsx'
+import SingleExercise from './pages/singleExercise/SingleExercise.jsx'
 
 
 
@@ -29,6 +30,7 @@ const myRouter = createBrowserRouter(
         <Route path='nutrition' element={<Nutrition />} />
         <Route path='addPost' element={<AddPost />} />
         <Route path='workout' element={<Workout />}></Route>
+        <Route path='singleExercise/:id' element={<SingleExercise/>}></Route>
       </Route>
 
       <Route path='*' element={<ErrorPage/>} ></Route>
