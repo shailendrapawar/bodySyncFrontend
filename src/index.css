@@ -7,13 +7,11 @@
   padding: 0px;
   box-sizing: border-box;
   background-color: #ECF0F1;
-  
   color: white;
 }
 :root ::-webkit-scrollbar{
   display: none;
 }
-
 .homeBtn-cover{
   width: 100%;
   height:auto;

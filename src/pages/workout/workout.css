@@ -1,4 +1,38 @@
 .workout-block{
-    background-color: #FFFFFF;
-    min-height: 91vh;
+    background-color: grey;
+    height: 90vh;
+}
+
+.workout-body{
+    height: 100%;
+    background-color: aqua;
+}
+
+.workoutSearch-body{
+    height: 40px;
+    width: 300px;
+    background-color: white;
+    margin-top: 10px;
+}
+.search-list{
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+    height: auto;
+    min-height: 30px;
+    width: 300px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;   
+}
+
+.workout-result{
+    height: 300px;
+
+    min-width: 300px;
+    max-width: 800px;
+    width: 80%;
+    overflow-y: scroll;
+    justify-content: center;
+
 }
