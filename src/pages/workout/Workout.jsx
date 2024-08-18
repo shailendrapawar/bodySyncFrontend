@@ -40,7 +40,6 @@ const Workout = () => {
   
       try {
         const response = await axios.request(options);
-        console.log(response.data);
         setWorkout(response.data);
         setLoading(false);
         setKeyword("")

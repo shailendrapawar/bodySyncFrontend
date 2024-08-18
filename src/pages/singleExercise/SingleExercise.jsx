@@ -25,7 +25,6 @@ const SingleExercise = () => {
     
     try {
       const response = await axios.request(options);
-      console.log(response.data);
       setExerciseData(response.data);
       setInstruction(response.data.instructions)
     } catch (error) {
@@ -39,7 +38,6 @@ const SingleExercise = () => {
 
   },[])
 
-  console.log(instruction)
   return (
     <div className='singleExercise-block relative'>
       <h1 className='text-black text-center mt-2 h-12'>{exerciseData.name}</h1>

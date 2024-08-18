@@ -16,7 +16,6 @@ const ExerciseCard = ({data}) => {
             <p><label className='text-slate-300'>Target: </label> {data.target}</p>
             <p><label className='text-slate-300'>Body part: </label> {data.bodyPart}:</p>
             <p><label className='text-slate-300'>Equipment: </label> {data.equipment}</p>
-
           </div>
 
           <img className='exercise-img rounded-md bg-white' src={imgSrc} >

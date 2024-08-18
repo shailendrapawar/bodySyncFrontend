@@ -1,8 +1,6 @@
 .exerciseCard-body{
     width: 300px;
-    height: 150px;
-    /* background-color: black; */
-
+    height: 200px;
 }
 
 
@@ -11,13 +9,14 @@
     justify-content: space-around;
     align-items: center;
     height: 70%;
+    /* font-size: 0.4rem; */
 }
 .exercise-brief{
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 .exercise-img{
    width: 100px;
