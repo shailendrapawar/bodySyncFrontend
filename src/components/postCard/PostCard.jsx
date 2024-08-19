@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./postCard.css"
 
 import { GoHeart } from "react-icons/go";
+import { GoHeartFill } from "react-icons/go";
+
+
 
 const PostCard = ({ data }) => {
+// console.log(data);
+  const[like,setLike]=React.useState(true);
 
+  useEffect(()=>{
+
+    const userId=localStorage.getItem(import.meta.env.VITE_USER_KEY);
+    // console.log(userId)
+    if(data.postHits.includes(userId)){
+      console.log("includes")
+    }else{
+      console.log("dosent includes")
+    }
+  },[])
   return (
     <main className='postCard-body overflow-hidden cursor-pointer bg-[#ECF0F1]'>
       <section className='userName-body'>
@@ -16,7 +31,7 @@ const PostCard = ({ data }) => {
       <img src={data.postImg} className='postImg h-4/6 w-full bg-white'></img>
       <section className='like-caption-body flex   text-black'>
         <div className='w-52 postCaption'>{data.postCaption}</div>
-        <div className=' p-2 flex post-like justify-center'><GoHeart className='h-full w-auto flex mr-1' /><p>{data.postHits.length} hits</p></div>
+        <div className=' p-2 flex post-like justify-center'>{like?<GoHeartFill className='h-full w-auto flex mr-1 text-[#FF0000]' />:<GoHeart className='h-full w-auto flex mr-1' />}<p>{data.postHits.length} hits</p></div>
       </section>
     </main>
   )

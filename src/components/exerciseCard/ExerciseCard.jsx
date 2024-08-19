@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./exerciseCard.css"
 import { useNavigate } from "react-router-dom"
 
@@ -7,7 +7,10 @@ import { useNavigate } from "react-router-dom"
 
 const ExerciseCard = ({data}) => {
   const navigate=useNavigate()
-  const imgSrc=data.gifUrl
+  const imgSrc=data.gifUrl;
+
+  
+
     return (
     <main onClick={()=>navigate(`/user/singleExercise/${data.id}`)}  className='exerciseCard-body flex flex-col justify-evenly bg-[#FFA500] rounded-md'>
         <h1 className=' text-center pl-2 text-white'>{data.name}</h1>

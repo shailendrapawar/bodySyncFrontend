@@ -2,6 +2,7 @@
     width: 320px;
     border-radius: 10px;
     height: 250px;
+    border: 1px solid rgba(128, 128, 128, 0.264);
 }
 .userName-body{
     height: 18%;
