@@ -1,7 +1,6 @@
 import React from 'react'
 import "./nutriCard.css"
 const NutriCard = ({data}) => {
-  console.log(data)
   return (
     <div className='nutriCard-body p-2'>
       <section className='item-name relative h-14'>

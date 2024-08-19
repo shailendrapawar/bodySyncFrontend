@@ -1,0 +1,24 @@
+.postCard-body{
+    width: 320px;
+    border-radius: 10px;
+    height: 250px;
+}
+.userName-body{
+    height: 18%;
+}
+
+.like-caption-body{
+    height: 15%;
+    width: 100%;
+}
+.postCaption{
+    font-size: 0.7rem;
+    width: 74%;
+    padding: 0px 1px 1px 5px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    max-height: 100%;
+}
+.like-body{
+width: 25%;
+}

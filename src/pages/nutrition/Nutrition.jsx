@@ -33,7 +33,6 @@ const Nutrition = () => {
       };
       try {
         const response = await axios.request(options);
-        console.log(response.data);
         setData(response.data)
         setKeyword("")
         setLoading(false);
@@ -42,11 +41,7 @@ const Nutrition = () => {
       } catch (error) {
         console.error(error);
       }
-
-    }
-    
-
-   
+    }  
   }
 
   

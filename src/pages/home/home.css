@@ -2,3 +2,16 @@
     min-height: 85vh;
     background-color: #FFFFFF;
 }
+.home-block h1{
+    font-size: 2rem;
+
+
+}
+.home-body{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content:center;
+    padding: 10px;
+}

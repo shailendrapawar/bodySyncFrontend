@@ -21,10 +21,7 @@ const AddPost = () => {
 
   //function for posting=======================
   const handlePost = async () => {
-    console.log(postImg);
     const constraint = ["image/jpeg", "image/jpg", "image/png"]
-
-    
     if (postImg.length == 0 || caption == "") {
       alert("fill all fields")
     } else {
@@ -47,7 +44,6 @@ const AddPost = () => {
         })
         if (isUploaded.data.status == 201) {
           setLoading(false)
-          console.log("post created ")
           setCaption("")
           setPreview(altSrc)
           setTimeout(() => {
