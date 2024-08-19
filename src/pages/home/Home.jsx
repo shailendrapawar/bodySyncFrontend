@@ -35,6 +35,11 @@ function Home() {
   useEffect(()=>{
     loadAllpost();
 
+    socket.on("changes",(data)=>{
+      if(data){
+        loadAllpost()
+      }
+    })
   },[])
 
   return (
