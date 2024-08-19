@@ -9,7 +9,7 @@ const UserLayout = () => {
 
   return (
 
-    <div className='relative'>
+    <div className='relativel'>
       <Navbar />
 
       {<Outlet />}
