@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./addPost.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
@@ -60,7 +60,12 @@ const AddPost = () => {
     }
   }
 
-
+  useEffect(()=>{
+    const userId=localStorage.getItem(import.meta.env.VITE_USER_KEY);
+    if(userId==null||userId==undefined){
+      navigate("/login")
+    }
+  },[])
 
 
   return (
@@ -71,12 +76,10 @@ const AddPost = () => {
           setPreview("")
           setPostImg("")
           setImageSet(false)
-
           setPostImg(e.target.files[0])
           
           const constraint = ["image/jpeg", "image/jpg", "image/png"]
           if(constraint.includes(e.target.files[0].type)){
-            console.log(e.target.files[0].type)
             setPreview(URL.createObjectURL(e.target.files[0]))
             setImageSet(true)
           }
@@ -87,7 +90,7 @@ const AddPost = () => {
         <button onClick={(e) => {
           e.preventDefault()
           handlePost();
-        }} className='bg-[#FFA500] rounded-md bottom-0 right-0'>{loading ? "Posting..." : "Post"}</button>
+        }} className='bg-[#FFA500] rounded-md mt-1 bottom-0 right-0'>{loading ? "Posting..." : "Post"}</button>
       </div>
     </div>
   )

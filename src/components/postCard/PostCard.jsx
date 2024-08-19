@@ -8,7 +8,6 @@ const PostCard = ({ data, handleLike }) => {
 
 
   const navigate = useNavigate();
-  // console.log(data);
   const [like, setLike] = React.useState(true);
 
 
@@ -36,7 +35,7 @@ const PostCard = ({ data, handleLike }) => {
   return (
     <main className='postCard-body overflow-hidden cursor-pointer bg-[#ECF0F1]'>
       <section className='userName-body'>
-        <div className='flex gap-2 items-center h-full pl-3'>
+        <div onClick={()=>navigate(`/user/userPublic/${data.postOwner._id}`)} className='flex gap-2 items-center h-full pl-3'>
           <img src={data.postOwner.profileImg} className='h-9 w-9 rounded-full'></img>
           <p className='text-black'>{data.postOwner.name}</p>
         </div>

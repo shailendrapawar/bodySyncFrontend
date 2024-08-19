@@ -14,6 +14,7 @@ import UserLayout from './UserLayout.jsx'
 import ErrorPage from './ErrorPage.jsx'
 import LandingPage from './pages/landingPage/LandingPage.jsx'
 import SingleExercise from './pages/singleExercise/SingleExercise.jsx'
+import UserPublicProfile from './pages/userPublicProfile/UserPublicProfile.jsx'
 
 
 
@@ -26,11 +27,12 @@ const myRouter = createBrowserRouter(
 
       <Route path='/user' element={<UserLayout />}>
         <Route path='' element={<Home />} />
-        <Route path='userProfile/' element={<UserProfile />} />
+        <Route path='userProfile' element={<UserProfile />} />
         <Route path='nutrition' element={<Nutrition />} />
         <Route path='addPost' element={<AddPost />} />
         <Route path='workout' element={<Workout />}></Route>
         <Route path='singleExercise/:id' element={<SingleExercise/>}></Route>
+        <Route path='userPublic/:userId' element={<UserPublicProfile/>}></Route>
       </Route>
 
       <Route path='*' element={<ErrorPage/>} ></Route>

@@ -35,13 +35,12 @@ const SingleExercise = () => {
 
   useEffect(()=>{
     loadExercise()
-
   },[])
 
   return (
     <div className='singleExercise-block relative'>
       <h1 className='text-black text-center mt-2 h-12'>{exerciseData.name}</h1>
-      <IoArrowBackCircleSharp onClick={()=>navigate(-1)} className='h-12 w-12 text-[#FFA500]  absolute  top-2 left-8' />
+      <IoArrowBackCircleSharp onClick={()=>navigate(-1)} className=' back-btn h-12 w-12 text-[#FFA500]  absolute  top-2 left-8' />
 
       <main className='singleExercise-body'>
         <section className='singleExercise-body-left'>
@@ -57,7 +56,7 @@ const SingleExercise = () => {
         <section className='singleExercise-body-right flex flex-col justify-evenly'>
           {
             instruction?.map((ins,i)=>{
-             return  <p key={i} className='text-black'>{i+1}:--{ins}</p>
+             return  <p key={i} className='text-black bg-orange-300 p-1 rounded-md'>{i+1}:--{ins}</p>
             })
             
           }

@@ -116,10 +116,9 @@ const UserProfile = () => {
     } else {
       loadUserData(userId)
     }
-
-
   }, [])
 
+  
   return (
     <main className='userProfile-block'>
 
