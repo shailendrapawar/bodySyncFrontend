@@ -1,25 +1,38 @@
 import React, { useEffect } from 'react'
 import "./postCard.css"
-
+import { useNavigate } from "react-router-dom"
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 
+const PostCard = ({ data, handleLike }) => {
 
 
-const PostCard = ({ data }) => {
-// console.log(data);
-  const[like,setLike]=React.useState(true);
+  const navigate = useNavigate();
+  // console.log(data);
+  const [like, setLike] = React.useState(true);
 
-  useEffect(()=>{
 
+  //handling click in child
+  const handleClick = () => {
     const userId=localStorage.getItem(import.meta.env.VITE_USER_KEY);
-    // console.log(userId)
-    if(data.postHits.includes(userId)){
-      console.log("includes")
-    }else{
-      console.log("dosent includes")
+    handleLike(data._id,userId,like)
+    setLike(!like);
+  }
+
+  useEffect(() => {
+    const userId = localStorage.getItem(import.meta.env.VITE_USER_KEY);
+    if (userId) {
+      if (data.postHits.includes(userId)) {
+        setLike(true)
+      } else {
+        setLike(false)
+      }
+    } else {
+      navigate("/login")
     }
-  },[])
+  }, [])
+
+
   return (
     <main className='postCard-body overflow-hidden cursor-pointer bg-[#ECF0F1]'>
       <section className='userName-body'>
@@ -29,9 +42,12 @@ const PostCard = ({ data }) => {
         </div>
       </section>
       <img src={data.postImg} className='postImg h-4/6 w-full bg-white'></img>
-      <section className='like-caption-body flex   text-black'>
+      <section onClick={(e) => {
+        e.preventDefault()
+        handleClick()
+      }} className='like-caption-body flex   text-black'>
         <div className='w-52 postCaption'>{data.postCaption}</div>
-        <div className=' p-2 flex post-like justify-center'>{like?<GoHeartFill className='h-full w-auto flex mr-1 text-[#FF0000]' />:<GoHeart className='h-full w-auto flex mr-1' />}<p>{data.postHits.length} hits</p></div>
+        <div className=' p-2 flex post-like justify-center'>{like ? <GoHeartFill className='h-full w-auto flex mr-1 text-[#FF0000]' /> : <GoHeart className='h-full w-auto flex mr-1' />}<p>{data.postHits.length} hits</p></div>
       </section>
     </main>
   )
