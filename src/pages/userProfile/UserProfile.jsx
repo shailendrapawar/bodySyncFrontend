@@ -6,6 +6,7 @@ import maleAvatar from "./male-avatar.png"
 import femaleAvatar from "./female-avatar.png"
 
 import MiniPostCard from '../../components/miniPostCard/MiniPostCard'
+import LoadingComponent from '../../components/loadingComponent/LoadingComponent'
 
 
 const UserProfile = () => {
@@ -126,10 +127,10 @@ const UserProfile = () => {
         <div className='userData relative'>
           <section className='userData-left'>
             <img className='userProfilePic' onClick={() => inputRef.current.click()} src={userData.profileImg == null ? selectAvatar() : userData.profileImg}></img>
-            <div className='h-10 w-auto pl-2 pr-2 flex justify-center items-center gap-6'>
-              <button className='bg-red-500 w-20 h-7 rounded-md'>delete </button>
-              <button onClick={() => handleChangePhoto()} className='bg-green-500 w-20 h-7 rounded-md'>{loading ? "changing..." : "change"}</button>
-
+            <LoadingComponent value={loading}/>
+            <div className='h-10 w-auto pl-2 pr-2 flex justify-center items-center gap-6 mt-2'>
+              <button className='bg-red-500 w-24 h-8 rounded-md'>delete </button>
+              <button onClick={() => handleChangePhoto()} className='bg-green-500 w-24 h-8 rounded-md'>{loading ? "changing..." : "change"}</button>
             </div>
             <input hidden type='file' ref={inputRef} onChange={(e) => {
               e.preventDefault()

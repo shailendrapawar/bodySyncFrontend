@@ -23,10 +23,12 @@
 
 .register-block{
     height: 100vh;
+  
 }
 .register-body{
     height: 400px;
     width: 320px;
+    
 }
 .register-data{
     height: 80%;

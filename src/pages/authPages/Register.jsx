@@ -53,10 +53,10 @@ const Register = () => {
   
 
   return (
-    <div className='register-block bg-white flex items-center justify-center '>
+    <div className='register-block bg-white flex items-center justify-center'>
       <main className='register-body bg-[#ECF0F1] text-black flex flex-col justify-evenly '>
 
-        <h1 className='text-center'>Register page</h1>
+        <h1 className='text-center text-2xl'>Register</h1>
         <section className=' relative register-data pl-2 pr-2 flex flex-col gap-4'>
           <p className='text-red-600 text-center h-4'>{error}</p>
 
@@ -65,7 +65,7 @@ const Register = () => {
             <input value={name} onChange={(e) => {
               e.preventDefault()
               setName(e.target.value);
-            }} className=' w-full pl-1 pr-1 outline-none' type='text' placeholder='enter your name'></input>
+            }} className=' w-full pl-1 pr-1 outline-none' type='text' placeholder='Enter your Name'></input>
           </div>
 
           <div className='email-body h-10 flex'>
@@ -73,7 +73,7 @@ const Register = () => {
             <input value={email} onChange={(e) => {
               e.preventDefault()
               setEmail(e.target.value)
-            }} className=' w-full pl-1 pr-1 outline-none' type='text' placeholder='enter your email'></input>
+            }} className=' w-full pl-1 pr-1 outline-none' type='text' placeholder='Enter your Email'></input>
           </div>
 
           <div className='password-body h-10 flex'>
@@ -81,7 +81,7 @@ const Register = () => {
             <input value={password} onChange={(e) => {
               e.preventDefault()
               setPassword(e.target.value);
-            }} className=' w-full pl-1 pr-1 outline-none' type='text' placeholder='enter your password'></input>
+            }} className=' w-full pl-1 pr-1 outline-none' type='text' placeholder='Enter your Password'></input>
           </div>
           <div className='gender-body h-10 flex'>
             <BsGenderAmbiguous className='w-12 h-full p-2 bg-[#FFA500] text-white' />
@@ -89,16 +89,16 @@ const Register = () => {
               e.preventDefault()
               setGender(e.target.value);
             }} className='w-full outline-none'>
-              <option value="">select gender</option>
+              <option value="">Select gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
           </div>
 
-          <Link className='absolute left-5 bottom-5' to="/login">already a user?<u className=' text-blue-600'>Login instead</u></Link>
+          <Link className='absolute left-5 bottom-5' to="/login">already a user? <u className=' text-blue-600'>Login instead</u></Link>
 
-          <button style={(email == "" || password == "" || name == "" || gender == "") ? { cursor: "not-allowed" } : { cursor: "pointer" }} onClick={(e) => {
+          <button style={(email == "" || password == "" || name == "" || gender == "" ) ? { cursor: "not-allowed" } : { cursor: "pointer" }} onClick={(e) => {
             e.preventDefault();
             handleRegister(e);
           }} className='absolute bottom-5 right-5 rounded-md  w-24 h-7 bg-[#FFA500] text-white'>{loading ? "Submitting...." : "Register"}</button>

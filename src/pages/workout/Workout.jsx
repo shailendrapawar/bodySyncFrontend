@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./workout.css"
 import ExerciseCard from '../../components/exerciseCard/ExerciseCard';
 import axios from "axios"
+import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 
 const Workout = () => {
@@ -46,6 +47,7 @@ const Workout = () => {
   
       } catch (error) {
         console.error(error);
+        setLoading(false)
       }
     }
     
@@ -65,16 +67,17 @@ const Workout = () => {
           <button onClick={()=>searchExerciseByPart()} className='w-2/6 h-full bg-[#5DADE2]'>{loading?"searching....":"search"}</button>
         </section>
 
-        <select onChange={(e)=>setKeyword(e.target.value)} className='search-list mt-2 text-black outline-none'>
+        <select onChange={(e)=>setKeyword(e.target.value)} className='search-list mt-2 text-black outline-none mb-4'>
           <option>or select body part</option>
 
         {filterResult?.map((v,i)=>{
            return   <option className='bg-black text-white h-6 list-none' key={i}>{v}</option>
           })}
         </select>
+        <LoadingComponent value={loading} />
 
 
-        <section className='workout-result bg-white flex flex-wrap gap-2 p-2 mt-2'>
+        <section className='workout-result bg-white flex flex-wrap gap-2 p-2 mt-4'>
           {
             workouts?.map((exercise,i)=>{
               return <ExerciseCard data={exercise} key={i}/>

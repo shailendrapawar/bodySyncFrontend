@@ -2,19 +2,26 @@ import React, { useState } from 'react'
 import './nutrition.css'
 import axios from 'axios';
 import NutriCard from '../../components/nutriCard/NutriCard';
+import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 const Nutrition = () => {
 
   const [keyword,setKeyword]=useState("");
   const[notify,setNotify]=useState("");
   const[loading,setLoading]=useState(false);
-
   const [data,setData]=useState([])
+
+  const notification=(text)=>{
+    setNotify(text);
+    setTimeout(()=>{
+      setNotify("")
+    },2000)
+  }
 
   const searchData = async() => {
 
     if(keyword==null || keyword==""){
-      setNotify("please eneter a detail first");
+      notification("enter a keyword")
     }else{
 
       setLoading(true)
@@ -36,10 +43,12 @@ const Nutrition = () => {
         setData(response.data)
         setKeyword("")
         setLoading(false);
-
-        setNotify("data found")
+        notification("Item Found")
       } catch (error) {
         console.error(error);
+        notification("some internal error")
+        setLoading(false);
+        
       }
     }  
   }
@@ -53,9 +62,10 @@ const Nutrition = () => {
         <input value={keyword} onChange={(e)=>{
           e.preventDefault()
           setKeyword(e.target.value)}} type='text' className='h-full w-4/6 pl-1 pr-1 text-black outline-none' placeholder='enter food or brand name '></input>
-        <button onClick={()=>searchData()} className='bg-blue-500 w-2/6 h-full'>{loading?"searching...":"search"}</button>
+        <button onClick={()=>searchData()} className='searchBtn bg-blue-500 w-2/6 h-full'>{loading?"searching...":"search"}</button>
       </main>
-      
+
+      <LoadingComponent value={loading}/>
 
       <section className='searchResult-body flex gap-1 flex-wrap'>
         {
