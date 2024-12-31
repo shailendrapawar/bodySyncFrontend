@@ -28,11 +28,15 @@ const myRouter = createBrowserRouter(
       <Route path='/user' element={<UserLayout />}>
         <Route path='' element={<Home />} />
         <Route path='userProfile' element={<UserProfile />} />
+        <Route path='userPublic/:userId' element={<UserPublicProfile/>}></Route>
+
         <Route path='nutrition' element={<Nutrition />} />
+
         <Route path='addPost' element={<AddPost />} />
+
         <Route path='workout' element={<Workout />}></Route>
         <Route path='singleExercise/:id' element={<SingleExercise/>}></Route>
-        <Route path='userPublic/:userId' element={<UserPublicProfile/>}></Route>
+        
       </Route>
 
       <Route path='*' element={<ErrorPage/>} ></Route>

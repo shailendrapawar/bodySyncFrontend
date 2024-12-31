@@ -51,11 +51,9 @@ padding-right: 10px;
     padding: 5px;
 }
 
-.user-hits-posts{
+/* .user-hits-posts{
     height: 60px;
-    display: flex;
-    justify-content: space-between;
-}
+} */
 .user-hits-posts section{
     width: 120px;
     height: 100%;

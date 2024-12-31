@@ -35,7 +35,7 @@ const UserProfile = () => {
         setLoading(true)
         const userId = localStorage.getItem(import.meta.env.VITE_USER_KEY)
         const formData = new FormData();
-        
+
         formData.append("profileImg", profileImg)
         formData.append("userId", userId);
 
@@ -119,16 +119,15 @@ const UserProfile = () => {
     }
   }, [])
 
-  
+
   return (
     <main className='userProfile-block select-none'>
       <section className='upperProfile-body'>
         <div className='userData relative'>
           <section className='userData-left'>
-            <img className='userProfilePic' onClick={() => inputRef.current.click()} src={userData.profileImg == null ? selectAvatar() : userData.profileImg}></img>
-            <LoadingComponent value={loading}/>
+            <img className='userProfilePic object-cover' onClick={() => inputRef.current.click()} src={userData.profileImg == null ? selectAvatar() : userData.profileImg}></img>
+            <LoadingComponent value={loading} />
             <div className='h-10 w-auto pl-2 pr-2 flex justify-center items-center gap-6 mt-2'>
-              <button className='bg-red-500 w-24 h-8 rounded-md'>delete </button>
               <button onClick={() => handleChangePhoto()} className='bg-green-500 w-24 h-8 rounded-md'>{loading ? "changing..." : "change"}</button>
             </div>
             <input hidden type='file' ref={inputRef} onChange={(e) => {
@@ -139,13 +138,12 @@ const UserProfile = () => {
             }}  ></input>
           </section>
           <section className='userData-right'>
-            <h1 className='text-black text-right pr-5'>{userData.name} </h1>
+            <h1 className='text-black text-right pr-5 text-3xl'>{userData.name} </h1>
             <textarea className='outline-none text-black' placeholder='bio of the user'></textarea>
-            <div className='user-hits-posts'>
-              <section className='user-posts relative'><b className='absolute top-0.5 left-1 '>Posts</b>{userPosts.length}</section>
-              <section className='user-hits relative'><b className='absolute top-0.5 left-1'>Hits</b>{userData.totalHits}</section>
+            <div className='user-hits-posts items-center flex justify-end gap-10'>
+              <button onClick={() => handleLogout()} className=' bg-red-600 h-8 w-32 rounded-md'>sign-out</button>
+              <button onClick={() => handleLogout()} className=' bg-blue-600 h-8 w-32 rounded-md'>Edit Profile</button>
             </div>
-            <button onClick={() => handleLogout()} className=' bg-red-600 h-8 w-40 rounded-md '>sign-out</button>
           </section>
         </div>
       </section>
@@ -155,7 +153,7 @@ const UserProfile = () => {
         <div className='lowerProfile-body '>
           {userPosts == null ? <h1>Nothing to show</h1> : userPosts.map((post, i) => {
             // console.log(post)
-            return <MiniPostCard deleteFn={handleDelete} data={post} key={i} />
+            return <MiniPostCard deleteFn={handleDelete} data={post} key={i} userId={localStorage.getItem(import.meta.env.VITE_USER_KEY)} />
 
           })}
 
