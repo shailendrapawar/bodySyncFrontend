@@ -121,8 +121,7 @@ const UserProfile = () => {
 
   
   return (
-    <main className='userProfile-block'>
-
+    <main className='userProfile-block select-none'>
       <section className='upperProfile-body'>
         <div className='userData relative'>
           <section className='userData-left'>

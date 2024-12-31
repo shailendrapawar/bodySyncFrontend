@@ -7,44 +7,9 @@ import AddItem from '../../components/addItem/AddItem';
 
 const Nutrition = () => {
 
-  const tempdata = [
-    {
-      brand: "Generic",
-      name: "Oreos",
-      nutrition: {
-        Calories: "157.8",
-        Carbs: "24.1g",
-        Fat: "6.5g",
-        Protein: "1.8g",
-        ServingSize: "3 cookies"
-      }
-    }, {
-      brand: "Generic",
-      name: "Oreo Nabisco",
-      nutrition: {
-        Calories: "157.8",
-        Carbs: "24.1g",
-        Fat: "6.5g",
-        Protein: "1.8g",
-        ServingSize: "3 cookies"
-      }
-    },
-    {
-      brand: "Oreo cookies",
-      name: "Oreo Cookies",
-      nutrition: {
-        Calories: "157.8",
-        Carbs: "24.1g",
-        Fat: "6.5g",
-        Protein: "1.8g",
-        ServingSize: "3 cookies"
-      }
-    }
-  ]
-
-
   const [itemCart, setItemCart] = useState([])
 
+  // ficntion for adding and removing item from cart 
   const addCart = (item) => {
     item.key=Date.now()
     setItemCart((prev) => [...prev, item])
@@ -170,7 +135,7 @@ const Nutrition = () => {
             }
           </div>
 
-          <div className='calorieCart w-2/6 p-2 flex flex-col justify-evenly max-w-52 bg-orange-400 rounded-md select-none '>
+          <div className='calorieCart w-4/6 p-2 flex flex-col justify-evenly max-w-52 bg-orange-400 rounded-md select-none '>
             <div className=' flex justify-between'><em>FATS :</em> <b>{totals.fats} gm </b></div>
             <div className=' flex justify-between'><em>CARBS :</em> <b>{totals.carbs} gm</b></div>
             <div className=' flex justify-between'><em>PROTIEN :</em> <b>{totals.protein} gm </b></div>
@@ -180,8 +145,6 @@ const Nutrition = () => {
 
         </section>
       </div>
-
-
     </div>
   )
 }
