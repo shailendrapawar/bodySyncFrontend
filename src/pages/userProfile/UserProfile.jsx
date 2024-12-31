@@ -139,10 +139,10 @@ const UserProfile = () => {
           </section>
           <section className='userData-right'>
             <h1 className='text-black text-right pr-5 text-3xl'>{userData.name} </h1>
-            <textarea className='outline-none text-black' placeholder='bio of the user'></textarea>
+            <div className='outline-none text-slate-500 h-20 w-full bg-slate-100 p-2 truncate break-words text-wrap'>{userData.bio}</div>
             <div className='user-hits-posts items-center flex justify-end gap-10'>
               <button onClick={() => handleLogout()} className=' bg-red-600 h-8 w-32 rounded-md'>sign-out</button>
-              <button onClick={() => handleLogout()} className=' bg-blue-600 h-8 w-32 rounded-md'>Edit Profile</button>
+              <button onClick={() => navigate(`/user/editProfile`,{state:{userId:localStorage.getItem(import.meta.env.VITE_USER_KEY)}})} className=' bg-blue-600 h-8 w-32 rounded-md'>Edit Profile</button>
             </div>
           </section>
         </div>

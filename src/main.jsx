@@ -15,6 +15,7 @@ import ErrorPage from './ErrorPage.jsx'
 import LandingPage from './pages/landingPage/LandingPage.jsx'
 import SingleExercise from './pages/singleExercise/SingleExercise.jsx'
 import UserPublicProfile from './pages/userPublicProfile/UserPublicProfile.jsx'
+import EditProfile from './pages/editProfile/EditProfile.jsx'
 
 
 
@@ -29,6 +30,7 @@ const myRouter = createBrowserRouter(
         <Route path='' element={<Home />} />
         <Route path='userProfile' element={<UserProfile />} />
         <Route path='userPublic/:userId' element={<UserPublicProfile/>}></Route>
+        <Route path='editProfile' element={<EditProfile/>}/>
 
         <Route path='nutrition' element={<Nutrition />} />
 
