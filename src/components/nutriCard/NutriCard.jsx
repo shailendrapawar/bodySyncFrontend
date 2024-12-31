@@ -1,8 +1,9 @@
 import React from 'react'
 import "./nutriCard.css"
-const NutriCard = ({data}) => {
+const NutriCard = ({data,fn,}) => {
+// console.log(id)
   return (
-    <div className='nutriCard-body p-2'>
+    <div className='nutriCard-body p-1 select-none' onDoubleClick={()=>fn(data)}>
       <section className='item-name relative h-14'>
         <h1 className=' food-name text-center h-8'>{data.name}</h1>
         <b className='brand absolute bottom-0 left-0'>{data.brand}</b>

@@ -15,12 +15,13 @@
 }
 .searchResult-body{
     min-height: 200px;
-    height: 450px;
-    width: 90%;
+    height: 200px;
+
     padding: 5px;
     justify-content: center;
     align-items: center;
     overflow-y: scroll;
+    gap: 10px;
 }
 .searchResult-body::-webkit-scrollbar{
     display: none;
@@ -32,4 +33,19 @@
     transform: scale(0.9);
     border-radius: 10px;
     
+}
+
+
+/* // for clairie cointer=========================== */
+.calorieCounter-body{
+height: 200px;
+overflow-x: scroll;
+}
+
+.calorieItems{
+    overflow-x: scroll;
+}
+
+.calorieCounter-body-webkit-scrollbar{
+    display: none;
 }

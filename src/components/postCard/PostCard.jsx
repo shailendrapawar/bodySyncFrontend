@@ -39,7 +39,7 @@ const PostCard = ({ data, handleLike }) => {
           <p className='text-black'>{data.postOwner.name}</p>
         </div>
       </section>
-      <img src={data.postImg} className='postImg h-4/6 w-full bg-white'></img>
+      <img src={data.postImg} className='postImg h-4/6 w-full bg-slate-500'></img>
       <section onClick={(e) => {
         e.preventDefault()
         handleClick()
