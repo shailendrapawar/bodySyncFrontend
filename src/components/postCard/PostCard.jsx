@@ -41,7 +41,7 @@ const PostCard = ({ data, handleLike }) => {
     <main className='postCard-body overflow-hidden cursor-pointer bg-[#ECF0F1] shadow-sm shadow-black'>
       <section className='userName-body'>
         <div className='flex gap-2 items-center h-full pl-3'>
-          <img src={data.postOwner.profileImg} className='h-9 w-9 rounded-full'></img>
+          <img src={data.postOwner.profileImg} className='h-9 w-9 rounded-full object-cover'></img>
           <p className='text-black' onClick={()=>userProfileNavigate()}>{data.postOwner.name}</p>
         </div>
       </section>
