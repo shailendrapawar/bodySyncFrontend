@@ -12,9 +12,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [email, setEmail] = useState("admin@gmail.com")
+  const [password, setPassword] = useState("admin")
 
   //=======functionality for login===========================//
   const handleLogin = async (e) => {

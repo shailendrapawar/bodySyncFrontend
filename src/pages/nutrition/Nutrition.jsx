@@ -113,7 +113,7 @@ const Nutrition = () => {
         }} type='text' className='h-full w-4/6 pl-1 pr-1 text-black outline-none' placeholder='enter food or brand name '></input>
         <button onClick={() => searchData()} className='searchBtn bg-blue-500 w-2/6 h-full'>{loading ? "searching..." : "search"}</button>
       </main>
-
+      <span className='text-orange-400'>Double Tap to Add</span>
       <LoadingComponent value={loading} />
 
       <div className='nutrition-body w-full pl-1 pr-1 flex flex-col justify-start '>

@@ -45,8 +45,9 @@ const EditProfile = () => {
                 setBio("");
                 navigate(-1)
             }
+            console.log(isUpdated)
         }
-        console.log(isUpdated)
+        
        }catch(err){
         console.warn(err)
        }finally{

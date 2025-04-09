@@ -10,8 +10,11 @@
 
 .search-body{
     background-color: grey;
-    height: 40px;
+    height: 35px;
     width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    
 }
 .searchResult-body{
     min-height: 200px;

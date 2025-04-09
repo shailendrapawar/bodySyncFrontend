@@ -3,9 +3,9 @@ import "./nutriCard.css"
 const NutriCard = ({data,fn,}) => {
 // console.log(id)
   return (
-    <div className='nutriCard-body p-1 select-none' onDoubleClick={()=>fn(data)}>
-      <section className='item-name relative h-14'>
-        <h1 className=' food-name text-center h-8'>{data.name}</h1>
+    <div className='nutriCard-body h-40 cursor-pointer min-w-60 p-1 select-none flex flex-col justify-between shadow-md bg-white text-black shadow-black ' onDoubleClick={()=>fn(data)}>
+      <section className='item-name relative h-14 '>
+        <h1 className=' food-name text-center h-6'>{data.name}</h1>
         <b className='brand absolute bottom-0 left-0'>{data.brand}</b>
         <b className='serving absolute bottom-0 right-0'>Serving:{data.nutrition["Serving Size"]}</b>
       </section>
