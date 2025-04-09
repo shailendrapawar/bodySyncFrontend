@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./addPost.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-import altSrc from "../../assets/upload-img.jpg"
+import altSrc from "./upload-img.jpg"
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 
@@ -89,7 +89,7 @@ const AddPost = () => {
           }
 
         }} ref={inputRef} className=' hidden' type='file'></input>
-        <img src={imageSet ? preview : altSrc} onClick={() => inputRef.current.click()} className='object-cover shadow-md shadow-black active:shadow-sm'></img>
+        <img loading='lazy' src={imageSet ? preview : altSrc} onClick={() => inputRef.current.click()} className='object-cover shadow-md shadow-black active:shadow-sm'></img>
         <input value={caption} onChange={(e) => setCaption(e.target.value)} className=' outline-none text-black pl-1 pr-1 mb-2 mt-2 text-center' type='text' placeholder='enter caption'></input>
 
         <LoadingComponent value={loading} />
